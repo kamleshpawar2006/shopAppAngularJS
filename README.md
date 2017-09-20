@@ -14,9 +14,9 @@ var con  = mysql.createConnection({
 ```
 with the details configured in your system i.e. hostname,port,user,password and database.
 
-1. import "mydbnew.sql" file in your database.
+3. import "mydbnew.sql" file in your database.
 
-1. Change following if your system has already using port 3000
+4. Change following if your system has already using port 3000
 ```
 app.listen(3000, '0.0.0.0', function() {
     console.log('Listening to port:  ' + 3000);
@@ -24,7 +24,7 @@ app.listen(3000, '0.0.0.0', function() {
 ```
 replace 3000 with any other available port.
 
-1. open any browser and hit http://localhost:3000
+5. open any browser and hit http://localhost:3000
 
 
 >important: users table has user_type field wherein values 1 and 2 corresponds to admin and website visitor respectively.
