@@ -1,8 +1,8 @@
 # shopAppAngularJS
 
 After downloading the repo:
-=>Make sure your system have node js and mysql installed in it.
-=>Change following block of code in backend.js
+1. Make sure your system have node js and mysql installed in it.
+2. Change following block of code in backend.js
 
 var con  = mysql.createConnection({
      host     : 'localhost',
