@@ -1,4 +1,4 @@
-"# shopAppAngularJS" 
+# shopAppAngularJS
 
 After downloading the repo:
 =>Make sure your system have node js and mysql installed in it.
