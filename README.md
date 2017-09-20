@@ -27,4 +27,4 @@ replace 3000 with any other available port.
 => open any browser and hit http://localhost:3000
 
 
-important: users table has user_type field wherein values 1 and 2 corresponds to admin and website visitor respectively.
+!important: users table has user_type field wherein values 1 and 2 corresponds to admin and website visitor respectively.
