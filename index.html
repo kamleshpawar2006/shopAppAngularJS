@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{{title}}</title>
+		<link rel="icon" href="https://angularjs.org/favicon.ico" type="image/ico" sizes="16x16">
+		<link href="css/font-awesome.css" rel="stylesheet">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/animate.css" rel="stylesheet">
+		<link href="css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+		<link href="css/custom.css" rel="stylesheet">
+	</head>
+	
+	<body ng-controller="appMain">
+		<div id="all">
+			<div ng-include="'header'"></div>
+			<div class="container padding-top-main-view" ui-view="main"></div>
+			<div ng-include="'footer'"></div>
+		</div>
+		
+		<script src="resources/angular-1_4_8.js"></script>
+		<script src="resources/3rdParty/angular-ui-router.js"></script>
+		<script src="resources/3rdParty/ui-bootstrap-tpls-2.5.0.js"></script>
+		<script src="resources/3rdParty/ocLazyLoad.js"></script>
+		
+		<script src="scripts/app.js"></script>
+		<script src="scripts/config.js"></script>
+		<script src="scripts/registerController.js"></script>
+		<script src="scripts/loginController.js"></script>
+		<script src="scripts/appMainController.js"></script>
+		<script src="scripts/dataFactory.js"></script>
+		<script src="scripts/adminController.js"></script>
+		<script src="scripts/productsController.js"></script>
+		<script src="scripts/customFilters.js"></script>
+		<script src="scripts/customDirectives.js"></script>
+		
+		<div id="lazyLoad"></div>
+	</body>
+</html>

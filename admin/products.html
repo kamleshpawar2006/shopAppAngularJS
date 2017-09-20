@@ -1,0 +1,34 @@
+<div id="page-wrapper" ng-controller="productController" ng-init="getProducts()">
+	<div class="row">
+		<div class="col-lg-12">
+			<h2 class="page-header admin-page-title">Products</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="table-container">
+			<table class="table table-filter" ng-if="products.length > 0">
+				<tbody>
+					<tr ng-repeat="product in products">
+						<td>
+							<div class="media">
+								<div class="float-left margin-right"><img src="http://www.gujaratheritagetourism.com/wp-content/uploads/2017/04/dummy-img.jpg" width="100" class="media-photo"></div>
+								<div class="float-left">
+									<h4 class="title">Product name: {{product.product_name}} </h4>
+									<h5>{{product.product_price | currency : "&#8377"}}</h5>
+									<h5>Category: {{product.category_name}}</h5>
+									<div><p class="summary">{{product.product_description}}</p></div>
+								</div>
+								<div class="float-right">
+									<a href="javascript:void(0)" class="btn btn-primary" ui-sref="admin.editproduct({prod_id :product.product_id })">Edit<a>
+									<a href="javascript:void(0)" class="btn btn-primary" ng-click="deleteProduct(product.product_id,$index)">Delete<a>
+								</div>
+								<div class="clear"></div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div ng-if="products.length == 0">No products found.</div>
+		</div>
+	</div>
+</div>

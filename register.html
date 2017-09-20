@@ -1,0 +1,60 @@
+<div id="content" ng-controller="register">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="box">
+					<h2 class="text-uppercase">New account</h2>
+					<form name="register" ng-submit="validateSignup(register)" novalidate>
+						<div class="form-group">
+							<label for="name-login">Full name</label>
+							<input type="text" class="form-control" name="fullName" ng-model="user.fullName" ng-required="true" ng-minlength="3" ng-maxlength="30">
+							<div ng-show="register.$submitted && register.fullName.$error.required" style="color:red">
+								Full name is required.
+							</div>
+							<div ng-show="register.$submitted && register.fullName.$error.minlength" style="color:red">
+								Full name should be of atleast 3 characters.
+							</div>
+							<div ng-show="register.$submitted && register.fullName.$error.maxlength" style="color:red">
+								Full name must not exceed 30 characters.
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="email-login">Email</label>
+							<input type="text" class="form-control" name="email" ng-model="user.email" ng-required="true" ng-pattern="/^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i" ng-unique="{ data : user.email }">
+							<div ng-show="register.$submitted && register.email.$error.required" style="color:red">
+								Email is required.
+							</div>
+							<div ng-show="register.$submitted && register.email.$error.pattern && !register.email.$error.required" style="color:red">
+								Enter valid email address.
+							</div>
+							<div ng-show="register.email.$error.unique" style="color:red">
+								Email address exists. Try another email address.
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="password-login">Password</label>
+							<input type="password" class="form-control" name="password" ng-model="user.password" ng-required="true">
+							<div ng-show="register.$submitted && register.password.$error.required" style="color:red">
+								Password is required.
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="password-login">Mobile No.</label>
+							<input type="text" class="form-control" name="mobile" ng-pattern="/^\d{10}$/" ng-model="user.mobile" ng-required="true">
+							<div ng-show="register.$submitted && register.mobile.$error.required" style="color:red">
+								Mobile no. is required.
+							</div>
+							<div ng-show="register.$submitted && register.mobile.$error.pattern && !register.mobile.$error.required" style="color:red">
+								Enter valid mobile no.
+							</div>
+						</div>
+						<div class="text-center">
+							<button type="submit" class="btn btn-template-main"><i class="fa fa-user"></i> Register</button>
+						</div>
+						<div class="alert alert-success" ng-if="message">{{message}}</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

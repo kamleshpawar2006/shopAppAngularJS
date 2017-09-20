@@ -1,0 +1,27 @@
+<div id="page-wrapper">
+	<div class="row">
+		<div class="col-lg-12">
+			<h2 class="page-header">Admin Dashboard</h2>
+		</div>
+		<!-- /.col-lg-12 -->
+	</div>
+	<div class="row">
+		<div class="col-lg-3">
+			<div class="panel panel-default">
+				<div class="">
+					<div class="list-group">
+						<a href="javascript:void(0)" ui-sref="admin.home" ui-sref-active="active" class="list-group-item">Home</a>
+						<a href="javascript:void(0)" ui-sref="admin.products" ui-sref-active="active" class="list-group-item">List Products</a>
+						<a href="javascript:void(0)" ui-sref="admin.addproduct" ui-sref-active="active" class="list-group-item">Add Product</a>
+						<a href="javascript:void(0)" ui-sref="admin.categories" ui-sref-active="active" class="list-group-item">List Categories</a>
+						<a href="javascript:void(0)" ui-sref="admin.addcategory" ui-sref-active="active" class="list-group-item">Add Category</a>
+						<!--a href="javascript:void(0)" ui-sref="admin.orders" ui-sref-active="active" class="list-group-item">Orders</a-->
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-9">
+			<div ui-view="admin"></div>
+		</div>
+	</div>
+</div>

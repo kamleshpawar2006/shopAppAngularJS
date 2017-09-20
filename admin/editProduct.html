@@ -1,0 +1,55 @@
+<div id="page-wrapper" ng-controller="productController" ng-init="getCategories();getSingleProduct();">
+	<div class="row">
+		<div class="col-lg-12">
+			<h2 class="page-header admin-page-title">Edit Product</h2>
+		</div>
+		<!-- /.col-lg-12 -->
+	</div>
+	<!-- /.row -->
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-lg-6">
+							<form novalidate name="form" ng-submit="updateProduct(form)">
+								<div class="form-group">
+									<label>Category</label>
+									<select name="category" ng-required="true" class="form-control" ng-model="product.category" ng-options="category as category.category_name for category in categories track by category.category_id">
+										<option value="">Select Category</option>
+									</select>
+									<div ng-show="form.$submitted && form.category.$error.required" style="color:red">
+										Select category.
+									</div>
+								</div>
+								<div class="form-group">
+									<label>Product Price</label>
+									<input type="number" ng-model="product.product_price" name="price" ng-required="true" class="form-control">
+									<div ng-show="form.$submitted && form.price.$error.required" style="color:red">
+										Product price is required.
+									</div>
+								</div>
+								<div class="form-group">
+									<label>Product Name</label>
+									<input type="text" ng-model="product.product_name" name="name" ng-required="true" class="form-control">
+									<div ng-show="form.$submitted && form.name.$error.required" style="color:red">
+										Product name is required.
+									</div>
+								</div>
+								<div class="form-group">
+									<label>Product description</label>
+									<textarea name="description" ng-model="product.product_description" ng-required="true" class="form-control" rows="3"></textarea>
+									<div ng-show="form.$submitted && form.description.$error.required" style="color:red">
+										Product description is required.
+									</div>
+								</div>
+								<button type="submit" class="btn btn-default">Save</button>
+								<div class="alert alert-success" ng-if="message">{{message}}</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

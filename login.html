@@ -1,0 +1,34 @@
+<div id="content" ng-controller="login">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="box">
+					<h2 class="text-uppercase">Sign in</h2>
+					<form name="login" ng-submit="validateLogin(login)" novalidate>
+						<div class="form-group">
+							<label for="email-login">Email</label>
+							<input type="text" class="form-control" name="email" ng-model="user.email" ng-required="true" ng-pattern="/^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i">
+							<div ng-show="login.$submitted && login.email.$error.required" style="color:red">
+								Email is required.
+							</div>
+							<div ng-show="login.$submitted && login.email.$error.pattern && !login.email.$error.required" style="color:red">
+								Enter valid email address.
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="password-login">Password</label>
+							<input type="password" class="form-control" name="password" ng-model="user.password" ng-required="true">
+							<div ng-show="login.$submitted && login.password.$error.required" style="color:red">
+								Password is required.
+							</div>
+						</div>
+						<div class="text-center">
+							<button type="submit" class="btn btn-template-main"><i class="fa fa-user"></i>Login</button>
+						</div>
+						<div class="alert alert-success" ng-if="message">{{message}}</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

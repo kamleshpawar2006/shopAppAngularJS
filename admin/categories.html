@@ -1,0 +1,32 @@
+<div id="page-wrapper" ng-controller="categoryController" ng-init="getCategories()">
+	<div class="row">
+		<div class="col-lg-12">
+			<h2 class="page-header admin-page-title">Categories</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="table-container">
+			<table class="table table-hover" ng-if="categories.length > 0">
+				<tbody>
+					<tr ng-repeat="category in categories">
+						<td>
+							<div class="media">
+								<div class="float-left margin-right"><img src="http://www.gujaratheritagetourism.com/wp-content/uploads/2017/04/dummy-img.jpg" width="100" class="media-photo"></div>
+								<div class="float-left">
+									<h4 class="title">{{category.category_name}}</h4>
+									<div><p class="summary">{{category.category_description}}</p></div>
+								</div>
+								<div class="float-right">
+									<a href="javascript:void(0)" class="btn btn-primary" ui-sref="admin.editcategory({cat_id : category.category_id})">Edit<a>
+									<a href="javascript:void(0)" class="btn btn-primary" ng-click="deleteCategory(category.category_id,$index)">Delete<a>
+								</div>
+								<div class="clear"></div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div ng-if="categories.length == 0">No categories found.</div>
+		</div>
+	</div>
+</div>

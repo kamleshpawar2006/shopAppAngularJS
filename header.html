@@ -1,0 +1,50 @@
+<header ng-init="check_user_logged()">
+	<div class="navbar-affixed-top">
+		<div class="navbar navbar-default yamm navbar-myshop">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand home" href="javascript:void(0);" ui-sref="home">
+						<h1>myShop</h1>
+					</a>
+				</div>
+				
+				<div ng-if="!loggedUser.logged" class="navbar-collapse collapse" id="navigation">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown" ui-sref-active="active">
+							<a href="javascript: void(0)" ui-sref="home" class="dropdown-toggle">Home</a>
+						</li>
+						<li class="dropdown" ui-sref-active="active">
+							<a href="javascript: void(0)" ui-sref="categoriesandproducts" class="dropdown-toggle">All Products</a>
+						</li>
+						<li class="dropdown" ui-sref-active="active">
+							<a href="javascript: void(0)" ui-sref="register" class="dropdown-toggle">Register</a>
+						</li>
+						<li class="dropdown" ui-sref-active="active">
+							<a href="javascript: void(0)" ui-sref="login" class="dropdown-toggle">Login</a>
+						</li>
+					</ul>
+				</div>
+				<div ng-if="loggedUser.logged" class="navbar-collapse collapse" id="navigation">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown" ui-sref-active="active">
+							<a href="javascript: void(0)" ui-sref="home" class="dropdown-toggle">Home</a>
+						</li>
+						<li class="dropdown" ui-sref-active="active">
+							<a href="javascript: void(0)" ui-sref="categoriesandproducts" class="dropdown-toggle">All Products</a>
+						</li>
+						<li class="dropdown" ui-sref-active="active">
+							<a href="javascript: void(0)" ui-sref="cart" class="dropdown-toggle">Cart</a>
+						</li>
+						<li class="dropdown" ui-sref-active="active" >
+							<a href="javascript: void(0)" ng-if="loggedUser.user_type == 2" ui-sref="dashboard" class="dropdown-toggle">{{loggedUser.full_name}}</a>
+							<a href="javascript: void(0)" ng-if="loggedUser.user_type == 1" ui-sref="admin" class="dropdown-toggle">{{loggedUser.full_name}}</a>
+						</li>
+						<li class="dropdown" ui-sref-active="active">
+							<a href="javascript: void(0)" ng-click="logout()" class="dropdown-toggle">Logout</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>

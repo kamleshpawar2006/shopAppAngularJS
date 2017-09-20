@@ -1,0 +1,134 @@
+<div id="content" ng-controller="productsController">
+	<div class="container">
+
+		<div class="row">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-9">
+				<cart-directive cartitems="cart"><cart-directive>
+			</div>
+		</div>
+
+		<!--div class="row">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-9">
+				<form ng-show="cartProducts.length > 0">
+
+					<div class="table-responsive">
+						<table class="table">
+							<thead>
+								<tr>
+									<th colspan="2">Product</th>
+									<th width="20px">Quantity</th>
+									<th>Unit price</th>
+									<th colspan="2">Total</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="cartProduct in cartProducts">
+									<td>
+										<a href="javascript:void(0);">
+											<img width="50" src="http://www.gujaratheritagetourism.com/wp-content/uploads/2017/04/dummy-img.jpg" alt="White Blouse Armani">
+										</a>
+									</td>
+									<td><a href="javascript:void(0);">{{cartProduct.product_name}}</a>
+									</td>
+									<td width="20px">
+										<input type="number" dynamic-name="'name_'+$index" ng-model="cartProduct.quantity" class="form-control">
+									</td>
+									<td>{{cartProduct.product_price | currency}}</td>
+									<td>{{cartProduct.product_price | currency}}</td>
+									<td><a href="#"><i class="fa fa-trash-o"></i></a>
+									</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<th colspan="4">Total</th>
+									<th colspan="2">$446.00</th>
+								</tr>
+							</tfoot>
+						</table>
+
+					</div>
+					
+				</form>
+				
+			</div>
+		</div-->
+	
+		<div class="row">
+			<!-- *** LEFT COLUMN *** -->
+
+			<div class="col-sm-3">
+
+				<!-- *** MENUS AND FILTERS *** -->
+
+				<div class="panel panel-default sidebar-menu">
+
+					<div class="panel-heading">
+						<h3 class="panel-title">Categories</h3>
+						<!--a class="btn btn-xs btn-danger pull-right" ng-click="removeAllCats()" href="javascript:void(0);"><i class="fa fa-times-circle"></i> <span class="hidden-sm">Clear</span></a-->
+					</div>
+
+					<div class="panel-body">
+						<div class="form-group" ng-repeat="cp in catWithProdCount">
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" checklist-model="ids" checklist-value="cp.category_id"> {{cp.category_name}} ({{cp.p_count}})
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- /.banner -->
+
+			</div>
+			<!-- /.col-md-3 -->
+
+			<!-- *** LEFT COLUMN END *** -->
+
+			<!-- *** RIGHT COLUMN *** -->
+
+			<div class="col-sm-9">
+
+				<div class="row products">
+					<div class="col-md-4 col-sm-6" ng-if="filteredItems.length >0" ng-repeat="product in filteredItems = ( products | getCatProducts : ids ) ">
+						<div class="product">
+							<div class="image">
+								<a href="javascript:void(0);">
+									<img src="http://www.gujaratheritagetourism.com/wp-content/uploads/2017/04/dummy-img.jpg" alt="" class="img-responsive image1">
+								</a>
+							</div>
+							<!-- /.image -->
+							<div class="text">
+								<a href="shop-detail.html">{{product.product_name}}</a>
+								<p class="price">{{product.product_price | currency }}</p>
+								<p>
+									<!--a href="javascript:void(0)" class="btn btn-default">View detail</a-->
+									<a href="javascript:void(0)" class="btn btn-template-main" ng-click="addToCart(product)"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+								</p>
+							</div>
+							<!-- /.text -->
+
+						</div>
+						<!-- /.product -->
+					</div>
+					
+					<div ng-if="filteredItems.length == 0">
+						<h4>No products found.</h4>
+					<div>
+				  
+				</div>
+				<!-- /.products -->
+
+			</div>
+			<!-- /.col-md-9 -->
+
+			<!-- *** RIGHT COLUMN END *** -->
+
+		</div>
+
+	</div>
+	<!-- /.container -->
+</div>
